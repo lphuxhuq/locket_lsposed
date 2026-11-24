@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      The modern Xposed API needs NO xposedmodule/xposedminversion meta-data.
+      Module name comes from android:label and the description the manager shows
+      comes from android:description. Everything else lives in
+      src/main/resources/META-INF/xposed/.
+
+      The <provider> that lets the manager talk to this app is merged in
+      automatically from the io.github.libxposed:service AAR.
+    -->
+    <application
+        android:name=".ModuleApp"
+        android:allowBackup="false"
+        android:description="@string/module_description"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.DayNight"
+        tools:ignore="MissingApplicationIcon">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

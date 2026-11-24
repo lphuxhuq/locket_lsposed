@@ -1,0 +1,19 @@
+name: New Locket version
+description: Report compatibility after a Locket APK update
+title: "[compat] Locket "
+labels: compatibility
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Locket version
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant LocketX module logs
+      description: Include loader, HBC, patch/cache and failure lines. Remove account identifiers.
+      render: text
+    validations:
+      required: true

@@ -1,0 +1,18 @@
+[versions]
+agp = "9.2.1"
+# libxposed modern API. 102 is the latest release (2026-06-14).
+# Bumping this requires reviewing META-INF/xposed/module.prop too.
+xposed = "102.0.0"
+androidx-annotation = "1.10.0"
+
+[plugins]
+agp-app = { id = "com.android.application", version.ref = "agp" }
+
+[libraries]
+# compileOnly: provided by the framework at runtime, must NOT be packaged.
+libxposed-api = { group = "io.github.libxposed", name = "api", version.ref = "xposed" }
+# implementation: real code that ships in the APK (manager IPC, remote prefs).
+libxposed-service = { group = "io.github.libxposed", name = "service", version.ref = "xposed" }
+# The api/service AARs declare NO dependencies, so androidx.annotation is not
+# transitive - it has to be requested explicitly to use @NonNull/@Nullable.
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx-annotation" }

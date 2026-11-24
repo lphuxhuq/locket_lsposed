@@ -1,0 +1,17 @@
+# Modern Xposed API only. This module uses API 102 features as part of its core
+# design (hook ids + HookHandle.replaceHook for hot reload).
+#
+# Gotcha: XposedInterface.getApiVersion() inside a hooked process returns LIB_API
+# - a compile-time constant of the bundled api library - NOT the framework's API
+# level. A module therefore cannot feature-detect the framework from inside a
+# hook, which is why this is a hard minimum instead of a runtime guard.
+# Use XposedService.getApiVersion() (app side, over IPC) for the real value.
+minApiVersion=102
+targetApiVersion=102
+# Scope is fixed to scope.list; users should not apply the module to other apps.
+staticScope=true
+# Let app updates trigger hot reload (still gated on onHotReloading returning true).
+autoHotReload=true
+
+# Credit shown in repository and app status:
+# src TuanMeta
