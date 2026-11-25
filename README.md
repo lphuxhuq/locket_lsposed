@@ -2,8 +2,6 @@
 
 Modern LSPosed module for `com.locket.Locket`, built on libxposed API 102.
 
-> **src TuanMeta**
-
 ## Auto-patch
 
 LocketX intercepts both React Native bridge loaders and bridgeless `ReactInstance` loaders. It reads the Hermes bundle actually selected by the installed APK, resolves target properties and functions by name/structure, then writes a validated patched copy into the app cache.
@@ -72,4 +70,4 @@ The repository excludes APKs, extracted proprietary bundles, local SDK paths, si
 
 ## Credit
 
-**src TuanMeta**
+**TuanMeta**
